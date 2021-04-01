@@ -1,1 +1,31 @@
-Contribution:
+﻿SER 502 Team 20
+
+
+Members
+1. Dhruv Dilipkumar Patel
+2. Aayush Rawal
+3. Venkata Surya Shandilya Kambhampati
+4. Sameet Krishna Kumar
+
+
+Contribution for Milestone 1 ( Mar 24 - Mar 31 )
+1. Sameet Krishna Kumar
+* Worked on creating grammar for the language
+* Learning the concepts required for compiler design
+2. Aayush Rawal
+* Setting up project in git
+* Worked on creating grammar for the language
+* Learning the concepts required for compiler design
+3. Dhruv Dilipkumar Patel
+* Setting up project in git
+* Worked on creating grammar for the language
+* Learning the concepts required for compiler design
+4. Venkata Surya Shandilya Kambhampati
+* Worked on creating grammar for the language
+* Learning the concepts required for compiler design
+
+
+Proposed plan
+1. Sameet Krishna Kumar - Lexical Analyzer
+2. Aayush Rawal, Dhruv Dilipkumar Patel - Parser
+3. Venkata Surya Shandilya Kambhampati - Semantic Analyzer
