@@ -24,8 +24,12 @@ Contribution for Milestone 1 ( Mar 24 - Mar 31 )
 * Worked on creating grammar for the language
 * Learning the concepts required for compiler design
 
-
-Proposed plan
-1. Sameet Krishna Kumar - Lexical Analyzer
-2. Aayush Rawal, Dhruv Dilipkumar Patel - Parser
-3. Venkata Surya Shandilya Kambhampati - Semantic Analyzer
+Contribution ( April 1 - April 11 )
+1. Sameet Krishna Kumar
+* Worked on creating parse tree for the language using Antlr
+2. Aayush Rawal
+* Worked on creating parse tree for the language using Antlr
+3. Dhruv Dilipkumar Patel
+* Worked on creating parse tree for the language using Antlr
+4. Venkata Surya Shandilya Kambhampati
+* Worked on creating parse tree for the language using Antlr
