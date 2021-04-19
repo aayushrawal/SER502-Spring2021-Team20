@@ -1,3 +1,4 @@
+// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
 
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -28,59 +29,124 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInitialization(yaslParser.InitializationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#declaration}.
+	 * Visit a parse tree produced by the {@code intNumInit}
+	 * labeled alternative in {@link yaslParser#integer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDeclaration(yaslParser.DeclarationContext ctx);
+	T visitIntNumInit(yaslParser.IntNumInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#integer}.
+	 * Visit a parse tree produced by the {@code intIdInit}
+	 * labeled alternative in {@link yaslParser#integer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInteger(yaslParser.IntegerContext ctx);
+	T visitIntIdInit(yaslParser.IntIdInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#string}.
+	 * Visit a parse tree produced by the {@code intExprInit}
+	 * labeled alternative in {@link yaslParser#integer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitString(yaslParser.StringContext ctx);
+	T visitIntExprInit(yaslParser.IntExprInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#bool}.
+	 * Visit a parse tree produced by the {@code strNumInit}
+	 * labeled alternative in {@link yaslParser#string}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBool(yaslParser.BoolContext ctx);
+	T visitStrNumInit(yaslParser.StrNumInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#boolean_value}.
+	 * Visit a parse tree produced by the {@code boolIdInit}
+	 * labeled alternative in {@link yaslParser#bool}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBoolean_value(yaslParser.Boolean_valueContext ctx);
+	T visitBoolIdInit(yaslParser.BoolIdInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#assignment}.
+	 * Visit a parse tree produced by the {@code boolBInit}
+	 * labeled alternative in {@link yaslParser#bool}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssignment(yaslParser.AssignmentContext ctx);
+	T visitBoolBInit(yaslParser.BoolBInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#print}.
+	 * Visit a parse tree produced by the {@code intDeclare}
+	 * labeled alternative in {@link yaslParser#declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrint(yaslParser.PrintContext ctx);
+	T visitIntDeclare(yaslParser.IntDeclareContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#sentence}.
+	 * Visit a parse tree produced by the {@code strDeclare}
+	 * labeled alternative in {@link yaslParser#declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSentence(yaslParser.SentenceContext ctx);
+	T visitStrDeclare(yaslParser.StrDeclareContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#number}.
+	 * Visit a parse tree produced by the {@code boolDeclare}
+	 * labeled alternative in {@link yaslParser#declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNumber(yaslParser.NumberContext ctx);
+	T visitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addition}
+	 * labeled alternative in {@link yaslParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddition(yaslParser.AdditionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subtraction}
+	 * labeled alternative in {@link yaslParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubtraction(yaslParser.SubtractionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expPrecedence}
+	 * labeled alternative in {@link yaslParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpPrecedence(yaslParser.ExpPrecedenceContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code multiplication}
+	 * labeled alternative in {@link yaslParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplication(yaslParser.MultiplicationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code division}
+	 * labeled alternative in {@link yaslParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivision(yaslParser.DivisionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code fact}
+	 * labeled alternative in {@link yaslParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFact(yaslParser.FactContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code idexpression}
+	 * labeled alternative in {@link yaslParser#factor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIdexpression(yaslParser.IdexpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code numberexpression}
+	 * labeled alternative in {@link yaslParser#factor}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumberexpression(yaslParser.NumberexpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link yaslParser#identifier}.
 	 * @param ctx the parse tree
@@ -88,81 +154,9 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIdentifier(yaslParser.IdentifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link yaslParser#special_char}.
+	 * Visit a parse tree produced by {@link yaslParser#number}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSpecial_char(yaslParser.Special_charContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#if_conditional}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIf_conditional(yaslParser.If_conditionalContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#condition}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCondition(yaslParser.ConditionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#conditional_operator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConditional_operator(yaslParser.Conditional_operatorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#unary_operator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUnary_operator(yaslParser.Unary_operatorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#step_size}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStep_size(yaslParser.Step_sizeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#ternary_conditional}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTernary_conditional(yaslParser.Ternary_conditionalContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#while_loop}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWhile_loop(yaslParser.While_loopContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#for_loop}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFor_loop(yaslParser.For_loopContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#range_loop}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRange_loop(yaslParser.Range_loopContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpression(yaslParser.ExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#term}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTerm(yaslParser.TermContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link yaslParser#factor}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFactor(yaslParser.FactorContext ctx);
+	T visitNumber(yaslParser.NumberContext ctx);
 }
