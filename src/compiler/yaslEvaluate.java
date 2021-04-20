@@ -124,6 +124,67 @@ public class yaslEvaluate extends yaslBaseVisitor{
     }
 
     @Override
+    public Object visitPreIncrement(yaslParser.PreIncrementContext ctx) {
+//        System.out.println("dfghj");
+        int val = 0;
+        String id = ctx.identifier().getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id)){
+                val= Integer.parseInt(innerMap.get(id));
+                ++val;
+            }
+        }
+//        System.out.println(val);
+        return val;
+    }
+
+    @Override
+    public Object visitPostIncrement(yaslParser.PostIncrementContext ctx) {
+        int val = 0;
+        String id = ctx.identifier().getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id)){
+                val= Integer.parseInt(innerMap.get(id));
+                val++;
+            }
+        }
+//        System.out.println(val);
+        return val;
+    }
+
+    @Override
+    public Object visitPreDecrement(yaslParser.PreDecrementContext ctx) {
+        int val = 0;
+        String id = ctx.identifier().getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id)){
+                val= Integer.parseInt(innerMap.get(id));
+                --val;
+            }
+        }
+//        System.out.println(val);
+        return val;
+    }
+
+    @Override
+    public Object visitPostDecrement(yaslParser.PostDecrementContext ctx) {
+        int val = 0;
+        String id = ctx.identifier().getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id)){
+                val= Integer.parseInt(innerMap.get(id));
+                val--;
+            }
+        }
+//        System.out.println(val);
+        return val;
+    }
+
+    @Override
     public Object visitIfCondition(yaslParser.IfConditionContext ctx) {
         if((boolean)visit(ctx.condition())) {
             visit(ctx.block());
@@ -168,6 +229,17 @@ public class yaslEvaluate extends yaslBaseVisitor{
     public Object visitConditionBoolOp(yaslParser.ConditionBoolOpContext ctx) {
         boolean boolVal = Boolean.parseBoolean(ctx.boolean_value.getText());
         return boolVal;
+    }
+
+    @Override
+    public Object visitWhile_loop(yaslParser.While_loopContext ctx) {
+        System.out.println("while block");
+        while((boolean)visit(ctx.condition()))
+        {
+            visit(ctx.block());
+        }
+
+        return 0;
     }
 
     @Override

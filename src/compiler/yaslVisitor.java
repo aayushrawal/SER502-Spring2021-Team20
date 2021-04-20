@@ -1,4 +1,5 @@
-// Generated from /home/emina/java-projects/yasl/data/yasl.g4 by ANTLR 4.9.1
+// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -91,6 +92,34 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBoolDeclare(yaslParser.BoolDeclareContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code preIncrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreIncrement(yaslParser.PreIncrementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code postIncrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPostIncrement(yaslParser.PostIncrementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code preDecrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreDecrement(yaslParser.PreDecrementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code postDecrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPostDecrement(yaslParser.PostDecrementContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ifCondition}
 	 * labeled alternative in {@link yaslParser#if_conditional}.
 	 * @param ctx the parse tree
@@ -118,6 +147,12 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitConditionBoolOp(yaslParser.ConditionBoolOpContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#while_loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhile_loop(yaslParser.While_loopContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.

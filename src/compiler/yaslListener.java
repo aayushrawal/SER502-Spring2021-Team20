@@ -1,4 +1,5 @@
-// Generated from /home/emina/java-projects/yasl/data/yasl.g4 by ANTLR 4.9.1
+// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
+
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -145,6 +146,54 @@ public interface yaslListener extends ParseTreeListener {
 	 */
 	void exitBoolDeclare(yaslParser.BoolDeclareContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code preIncrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterPreIncrement(yaslParser.PreIncrementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code preIncrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitPreIncrement(yaslParser.PreIncrementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code postIncrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostIncrement(yaslParser.PostIncrementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code postIncrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostIncrement(yaslParser.PostIncrementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code preDecrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterPreDecrement(yaslParser.PreDecrementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code preDecrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitPreDecrement(yaslParser.PreDecrementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code postDecrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void enterPostDecrement(yaslParser.PostDecrementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code postDecrement}
+	 * labeled alternative in {@link yaslParser#unary_operator}.
+	 * @param ctx the parse tree
+	 */
+	void exitPostDecrement(yaslParser.PostDecrementContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code ifCondition}
 	 * labeled alternative in {@link yaslParser#if_conditional}.
 	 * @param ctx the parse tree
@@ -192,6 +241,16 @@ public interface yaslListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitConditionBoolOp(yaslParser.ConditionBoolOpContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link yaslParser#while_loop}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhile_loop(yaslParser.While_loopContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link yaslParser#while_loop}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhile_loop(yaslParser.While_loopContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.
