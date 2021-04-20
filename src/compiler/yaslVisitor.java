@@ -1,5 +1,4 @@
-// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
-
+// Generated from /home/emina/java-projects/yasl/data/yasl.g4 by ANTLR 4.9.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -91,6 +90,34 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ifCondition}
+	 * labeled alternative in {@link yaslParser#if_conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfCondition(yaslParser.IfConditionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ifElseCondition}
+	 * labeled alternative in {@link yaslParser#if_conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfElseCondition(yaslParser.IfElseConditionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code conditionOp}
+	 * labeled alternative in {@link yaslParser#condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionOp(yaslParser.ConditionOpContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code conditionBoolOp}
+	 * labeled alternative in {@link yaslParser#condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionBoolOp(yaslParser.ConditionBoolOpContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.

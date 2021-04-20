@@ -1,5 +1,4 @@
-// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
-
+// Generated from /home/emina/java-projects/yasl/data/yasl.g4 by ANTLR 4.9.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -145,6 +144,54 @@ public interface yaslListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ifCondition}
+	 * labeled alternative in {@link yaslParser#if_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfCondition(yaslParser.IfConditionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifCondition}
+	 * labeled alternative in {@link yaslParser#if_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfCondition(yaslParser.IfConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ifElseCondition}
+	 * labeled alternative in {@link yaslParser#if_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfElseCondition(yaslParser.IfElseConditionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifElseCondition}
+	 * labeled alternative in {@link yaslParser#if_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfElseCondition(yaslParser.IfElseConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code conditionOp}
+	 * labeled alternative in {@link yaslParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionOp(yaslParser.ConditionOpContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code conditionOp}
+	 * labeled alternative in {@link yaslParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionOp(yaslParser.ConditionOpContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code conditionBoolOp}
+	 * labeled alternative in {@link yaslParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionBoolOp(yaslParser.ConditionBoolOpContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code conditionBoolOp}
+	 * labeled alternative in {@link yaslParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionBoolOp(yaslParser.ConditionBoolOpContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.

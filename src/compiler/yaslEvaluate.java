@@ -24,6 +24,11 @@ public class yaslEvaluate extends yaslBaseVisitor{
     }
 
     @Override
+    public Object visitInitialization(yaslParser.InitializationContext ctx) {
+        return super.visitInitialization(ctx);
+    }
+
+    @Override
     public Object visitIntNumInit(yaslParser.IntNumInitContext ctx) {
 //        System.out.println(ctx.identifier().getText());
 //        System.out.println(ctx.number().getText());
@@ -119,9 +124,56 @@ public class yaslEvaluate extends yaslBaseVisitor{
     }
 
     @Override
+    public Object visitIfCondition(yaslParser.IfConditionContext ctx) {
+        if((boolean)visit(ctx.condition())) {
+            visit(ctx.block());
+        }
+        return 0;
+    }
+
+    @Override
+    public Object visitIfElseCondition(yaslParser.IfElseConditionContext ctx) {
+        if((boolean)visit(ctx.condition())) {
+            visit(ctx.block(0));
+        } else {
+            visit(ctx.block(1));
+        }
+        return 0;
+    }
+
+    @Override
+    public Object visitConditionOp(yaslParser.ConditionOpContext ctx) {
+        System.out.println("sdfghj");
+        int expr1 = Integer.parseInt(visit(ctx.expression(0)).toString());
+        int expr2 = Integer.parseInt(visit(ctx.expression(1)).toString());
+        String conditionalOp = ctx.conditional_operator.getText();
+        switch (conditionalOp) {
+            case "==":
+                return expr1 == expr2;
+            case "<":
+                return expr1 < expr2;
+            case ">":
+                return expr1 > expr2;
+            case "<=":
+                return expr1 <= expr2;
+            case ">=":
+                return expr1 >= expr2;
+            case "!=":
+                return expr1 != expr2;
+        }
+        return 0;
+    }
+
+    @Override
+    public Object visitConditionBoolOp(yaslParser.ConditionBoolOpContext ctx) {
+        boolean boolVal = Boolean.parseBoolean(ctx.boolean_value.getText());
+        return boolVal;
+    }
+
+    @Override
     public Object visitAddition(yaslParser.AdditionContext ctx) {
-        int left =  (int)visit(ctx.term(0));
-        int right =  Integer.parseInt((String) visit(ctx.expression(0)));
+        int left =  (int)visit(ctx.term());
+        int right =  Integer.parseInt((String) visit(ctx.expression()));
         int result = left + right;
         return result;
 
@@ -129,8 +181,8 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitSubtraction(yaslParser.SubtractionContext ctx) {
-        int left =  (int)visit(ctx.term(0));
-        int right =  Integer.parseInt((String) visit(ctx.expression(0)));
+        int left =  (int)visit(ctx.term());
+        int right =  Integer.parseInt((String) visit(ctx.expression()));
         int result = left - right;
         return result;
     }
@@ -142,8 +194,8 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitMultiplication(yaslParser.MultiplicationContext ctx) {
-        int left =  Integer.parseInt((String) visit(ctx.factor(0)));
-        int right =  Integer.parseInt((String) visit(ctx.term(0)));
+        int left =  Integer.parseInt((String) visit(ctx.factor()));
+        int right =  Integer.parseInt((String) visit(ctx.term()));
         int result = left * right;
         return result;
 
@@ -151,8 +203,8 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitDivision(yaslParser.DivisionContext ctx) {
-        int left =  Integer.parseInt((String) visit(ctx.factor(0)));
-        int right =  Integer.parseInt((String) visit(ctx.term(1)));
+        int left =  Integer.parseInt((String) visit(ctx.factor()));
+        int right =  Integer.parseInt((String) visit(ctx.term()));
         int result = left / right;
         return result;
 
