@@ -1,5 +1,3 @@
-// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -91,6 +89,62 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddIdStep(yaslParser.AddIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubIdStep(yaslParser.SubIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulIdStep(yaslParser.MulIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code divideIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivideIdStep(yaslParser.DivideIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddNumStep(yaslParser.AddNumStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubNumStep(yaslParser.SubNumStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulNumStep(yaslParser.MulNumStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code divNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivNumStep(yaslParser.DivNumStepContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code preIncrement}
 	 * labeled alternative in {@link yaslParser#unary_operator}.

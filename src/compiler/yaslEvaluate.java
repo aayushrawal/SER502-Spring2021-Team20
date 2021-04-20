@@ -124,6 +124,168 @@ public class yaslEvaluate extends yaslBaseVisitor{
     }
 
     @Override
+    public Object visitAddIdStep(yaslParser.AddIdStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier(0).getText();
+        String id2 = ctx.identifier(1).getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(innerMap.get(id2));
+                val1+=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+    }
+
+    @Override
+    public Object visitSubIdStep(yaslParser.SubIdStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier(0).getText();
+        String id2 = ctx.identifier(1).getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(innerMap.get(id2));
+                val1-=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+    }
+
+    @Override
+    public Object visitMulIdStep(yaslParser.MulIdStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier(0).getText();
+        String id2 = ctx.identifier(1).getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(innerMap.get(id2));
+                val1*=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+
+    }
+
+    @Override
+    public Object visitDivideIdStep(yaslParser.DivideIdStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier(0).getText();
+        String id2 = ctx.identifier(1).getText();
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(innerMap.get(id2));
+                val1/=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+
+    }
+
+    @Override
+    public Object visitAddNumStep(yaslParser.AddNumStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier().getText();
+        System.out.println(id1);
+        String id2 = ctx.number().getText();
+        System.out.println(id2);
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(id2);
+                val1+=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+    }
+
+    @Override
+    public Object visitSubNumStep(yaslParser.SubNumStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier().getText();
+        System.out.println(id1);
+        String id2 = ctx.number().getText();
+        System.out.println(id2);
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(id2);
+                val1-=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+    }
+
+    @Override
+    public Object visitMulNumStep(yaslParser.MulNumStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier().getText();
+        System.out.println(id1);
+        String id2 = ctx.number().getText();
+        System.out.println(id2);
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(id2);
+                val1*=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+    }
+
+    @Override
+    public Object visitDivNumStep(yaslParser.DivNumStepContext ctx) {
+        int val1 = 0;
+        int val2 = 0;
+        String id1 = ctx.identifier().getText();
+        System.out.println(id1);
+        String id2 = ctx.number().getText();
+        System.out.println(id2);
+        for(String integer :memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(integer);
+            if(innerMap.containsKey(id1)){
+                val1= Integer.parseInt(innerMap.get(id1));
+                val2= Integer.parseInt(id2);
+                val1/=val2;
+                memory.get("INT").put(id1, String.valueOf(val1));
+            }
+        }
+//        System.out.println(val1);
+        return 0;
+    }
+
+    @Override
     public Object visitPreIncrement(yaslParser.PreIncrementContext ctx) {
 //        System.out.println("dfghj");
         int val = 0;
@@ -133,6 +295,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
             if(innerMap.containsKey(id)){
                 val= Integer.parseInt(innerMap.get(id));
                 ++val;
+                memory.get("INT").put(id, String.valueOf(val));
             }
         }
 //        System.out.println(val);
@@ -148,6 +311,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
             if(innerMap.containsKey(id)){
                 val= Integer.parseInt(innerMap.get(id));
                 val++;
+                memory.get("INT").put(id, String.valueOf(val));
             }
         }
 //        System.out.println(val);
@@ -163,6 +327,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
             if(innerMap.containsKey(id)){
                 val= Integer.parseInt(innerMap.get(id));
                 --val;
+                memory.get("INT").put(id, String.valueOf(val));
             }
         }
 //        System.out.println(val);
@@ -178,6 +343,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
             if(innerMap.containsKey(id)){
                 val= Integer.parseInt(innerMap.get(id));
                 val--;
+                memory.get("INT").put(id, String.valueOf(val));
             }
         }
 //        System.out.println(val);
@@ -236,6 +402,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
         System.out.println("while block");
         while((boolean)visit(ctx.condition()))
         {
+            System.out.println("YAHALLA");
             visit(ctx.block());
         }
 

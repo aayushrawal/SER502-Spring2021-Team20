@@ -1,5 +1,3 @@
-// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -145,6 +143,102 @@ public interface yaslListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code addIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddIdStep(yaslParser.AddIdStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code addIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddIdStep(yaslParser.AddIdStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code subIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubIdStep(yaslParser.SubIdStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code subIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubIdStep(yaslParser.SubIdStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code mulIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterMulIdStep(yaslParser.MulIdStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code mulIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitMulIdStep(yaslParser.MulIdStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code divideIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterDivideIdStep(yaslParser.DivideIdStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code divideIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitDivideIdStep(yaslParser.DivideIdStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code addNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddNumStep(yaslParser.AddNumStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code addNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddNumStep(yaslParser.AddNumStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code subNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterSubNumStep(yaslParser.SubNumStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code subNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitSubNumStep(yaslParser.SubNumStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code mulNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterMulNumStep(yaslParser.MulNumStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code mulNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitMulNumStep(yaslParser.MulNumStepContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code divNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void enterDivNumStep(yaslParser.DivNumStepContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code divNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 */
+	void exitDivNumStep(yaslParser.DivNumStepContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code preIncrement}
 	 * labeled alternative in {@link yaslParser#unary_operator}.
