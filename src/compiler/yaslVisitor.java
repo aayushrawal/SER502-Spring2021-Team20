@@ -1,3 +1,5 @@
+// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -48,12 +50,12 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntExprInit(yaslParser.IntExprInitContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code strNumInit}
+	 * Visit a parse tree produced by the {@code strIdInit}
 	 * labeled alternative in {@link yaslParser#string}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStrNumInit(yaslParser.StrNumInitContext ctx);
+	T visitStrIdInit(yaslParser.StrIdInitContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code boolIdInit}
 	 * labeled alternative in {@link yaslParser#bool}.
@@ -89,6 +91,27 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignNum}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignNum(yaslParser.AssignNumContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignBol}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignBol(yaslParser.AssignBolContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignExpr}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignExpr(yaslParser.AssignExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code addIdStep}
 	 * labeled alternative in {@link yaslParser#step_size}.
@@ -207,6 +230,18 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitWhile_loop(yaslParser.While_loopContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#for_loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFor_loop(yaslParser.For_loopContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#option}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOption(yaslParser.OptionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.
