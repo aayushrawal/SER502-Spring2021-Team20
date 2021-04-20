@@ -9,7 +9,7 @@ public class yaslGrammar {
 
     public static void main(String[] args) {
 
-        CharStream inputStream = CharStreams.fromString("string a =\"ersu\"; string b; b=a;.");
+        CharStream inputStream = CharStreams.fromString("int a =5; print(a);.");
         yaslLexer lexer = new yaslLexer(inputStream);
         CommonTokenStream tokenizer = new CommonTokenStream(lexer);
         yaslParser parser = new yaslParser(tokenizer);

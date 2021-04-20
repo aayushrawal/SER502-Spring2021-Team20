@@ -350,6 +350,30 @@ public interface yaslListener extends ParseTreeListener {
 	 */
 	void exitPostDecrement(yaslParser.PostDecrementContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code printStr}
+	 * labeled alternative in {@link yaslParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintStr(yaslParser.PrintStrContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code printStr}
+	 * labeled alternative in {@link yaslParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintStr(yaslParser.PrintStrContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link yaslParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintExpr(yaslParser.PrintExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link yaslParser#print}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintExpr(yaslParser.PrintExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code ifCondition}
 	 * labeled alternative in {@link yaslParser#if_conditional}.
 	 * @param ctx the parse tree

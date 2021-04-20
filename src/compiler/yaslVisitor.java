@@ -211,6 +211,20 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPostDecrement(yaslParser.PostDecrementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code printStr}
+	 * labeled alternative in {@link yaslParser#print}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintStr(yaslParser.PrintStrContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link yaslParser#print}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintExpr(yaslParser.PrintExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ifCondition}
 	 * labeled alternative in {@link yaslParser#if_conditional}.
 	 * @param ctx the parse tree

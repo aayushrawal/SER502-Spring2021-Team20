@@ -1,1 +1,1 @@
-(program (block (initialization (string string (identifier a) = " (sentence (sent_option (identifier ersu))) ")) ; (block (declaration string (identifier b)) ; (block (assignment (identifier b) = (expression (term (factor (identifier a))))) ;))) .)
+(program (block (initialization (integer int (identifier a) = (number 5))) ; (block (print print ( (expression (term (factor (identifier a)))) )) ;)) .)

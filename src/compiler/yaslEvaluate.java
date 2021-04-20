@@ -449,6 +449,18 @@ public class yaslEvaluate extends yaslBaseVisitor{
     }
 
     @Override
+    public Object visitPrintStr(yaslParser.PrintStrContext ctx) {
+        System.out.println(ctx.sentence().getText());
+        return 0;
+    }
+
+    @Override
+    public Object visitPrintExpr(yaslParser.PrintExprContext ctx) {
+        System.out.println(visit(ctx.expression()));
+        return 0;
+    }
+
+    @Override
     public Object visitIfCondition(yaslParser.IfConditionContext ctx) {
         System.out.println("AA");
         if((boolean)visit(ctx.condition())) {
@@ -611,15 +623,27 @@ public class yaslEvaluate extends yaslBaseVisitor{
     @Override
     public Object visitIdexpression(yaslParser.IdexpressionContext ctx) {
         System.out.println("AL");
-        int val = 0;
+        int val1 = 0;
+        String val2 = null;
         String id = ctx.identifier().getText();
-        for(String integer :memory.keySet()){
-            HashMap<String,String> innerMap = memory.get(integer);
-            if(innerMap.containsKey(id)){
-                val= Integer.parseInt(innerMap.get(id));
+        if(id.getClass().equals("class java.lang.Integer"))
+        {
+            for (String datatype : memory.keySet()) {
+                HashMap<String, String> innerMap = memory.get(datatype);
+                if (innerMap.containsKey(id)) {
+                    val1 = Integer.parseInt(innerMap.get(id));
+                }
             }
+            return val1;
+        }else{
+            for (String datatype : memory.keySet()) {
+                HashMap<String, String> innerMap = memory.get(datatype);
+                if (innerMap.containsKey(id)) {
+                    val2 = (innerMap.get(id));
+                }
+            }
+            return val2;
         }
-        return val;
     }
 
     @Override
