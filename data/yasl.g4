@@ -1,111 +1,73 @@
 grammar yasl;
-program :  block '.' ;
 
-block :   initialization ';' block
-| declaration ';' block
-| assignment ';' block
-| print ';' block
-| step_size ';' block
-| unary_operator ';' block
-| if_conditional block
-| ternary_conditional ';' block
-| 'break'';' block
-| for_loop block
-| while_loop block
-| range_loop block
+program : block '.';
+
+block : initialization ';'
+| initialization ';' block
 | declaration ';'
-| assignment ';'
-| print ';'
-| if_conditional
-| ternary_conditional ';'
-| step_size ';'
-| for_loop
+| declaration ';' block
+| condition ';'
+| condition ';' block
+| if_conditional ';' block
+| if_conditional ';'
+| while_loop block
 | while_loop
-| range_loop
+| unary_operator ';' block
 | unary_operator ';'
-| 'break'';'
-| initialization ';';
+;
 
 initialization : integer
 | string
-| boolean;
+| bool;
 
-declaration :  'int' identifier
-| 'string' identifier
-| 'bool' identifier;
+integer: 'int' identifier '=' number               #intNumInit
+| 'int' identifier '=' identifier                   #intIdInit
+| 'int' identifier '=' expression                   #intExprInit
+;
 
-integer : 'int' identifier '=' number
-| 'int' identifier '=' identifier
-| 'int' identifier '=' expression;
+string : 'string' identifier '=' identifier       #strNumInit
+;
 
-string : 'string' identifier '=' '"' sentence '"'
-| 'string' identifier '=' identifier;
+bool : 'bool' identifier '=' identifier #boolIdInit
+| 'bool' identifier '=' bop=('true' | 'false')       #boolBInit
+;
 
-boolean : 'bool' identifier '=' identifier
-| 'bool' identifier '=' boolean_value;
+declaration :  'int' identifier     # intDeclare
+| 'string' identifier               # strDeclare
+| 'bool' identifier                 # boolDeclare
+;
 
-boolean_value : 'true' | 'false';
+unary_operator : '++' identifier #preIncrement
+| identifier '++'                #postIncrement
+| '--' identifier                #preDecrement
+| identifier '--'                #postDecrement;
 
-assignment : identifier '=' expression
-| identifier '=' identifier
-| identifier '=' '"' sentence '"'
-| identifier '=' boolean_value
-| identifier '=' number ;
+if_conditional : 'if' '(' condition ')' 'then' '{' block '}' #ifCondition
+| 'if' '('condition')' 'then' '{' block '}' 'else' '{' block '}' #ifElseCondition ;
 
-print : 'print' '(' '"' sentence '"' ')'
-|'print' '(' (identifier | number | boolean_value|expression)')';
-
-sentence : (number |identifier| special_char)*;
-
-
-number : '-'? Digit;
-Digit :[0-9]+;
-
-identifier :  Id;
-Id:[_a-z][_a-z0-9]*;
-
-special_char : '?' | '!' | '@' | '#' | '$' | '%' | '^' | '&' | '*' | '(' | ')' | '_' | '+' | '{' | '}' | '[' | ']' | '|' | ';' | ':' | ',' | '.' | '<' | '>' | '/' | '-' | '=' | '`' | '~' | '\\'|'==' | '<' | '>' | '<=' | '>=' | '!=' | '++'| '--'| '+='| '-='| '*='| '/=';
-
-if_conditional : 'if' '(' condition ')' 'then' '{' block '}'
-| 'if' '('condition')' 'then' '{' block '}' 'else' '{' block '}';
-
-condition : expression conditional_operator expression
-| boolean_value;
-conditional_operator :  '==' | '<' | '>' | '<=' | '>=' | '!=' ;
-
-unary_operator : '++' identifier
-| identifier '++'
-| '--' identifier
-| identifier '--';
-
-step_size : identifier '+=' identifier
-| identifier '-=' identifier
-| identifier '*=' identifier
-| identifier '/=' identifier
-| identifier '+=' number
-| identifier '-=' number
-| identifier '*=' number
-| identifier '/=' number;
-
-
-ternary_conditional : (identifier|declaration) '=' expression conditional_operator expression '?' (expression|'"'sentence'"'|boolean_value|ternary_conditional) ':' (expression|'"'sentence'"'|boolean_value|ternary_conditional);
+condition : expression conditional_operator=('==' | '<' | '>' | '<=' | '>=' | '!=') expression #conditionOp
+| boolean_value=('true' | 'false') #conditionBoolOp;
 
 while_loop : 'while' '(' condition ')' '{' block '}';
 
-for_loop : 'for' '(' integer ';'  condition ';'  (unary_operator | step_size) ')' '{' block '}';
+expression : term '+' expression #addition
+| term '-' expression #subtraction
+| term #expPrecedence;
 
-range_loop : 'for'  identifier  'in' 'range' '('number ',' number')' '{' block '}'
-|'for'  identifier  'in' 'range' '('number ',' number ',' number ')' '{' block '}';
+term : factor '*' term #multiplication
+| factor '/' term #division
+| factor #fact;
 
-expression : term '+' expression
-| term '-' expression
-| term;
+factor : identifier #idexpression
+| number #numberexpression;
 
-term : factor '*' term
-| factor '/' term
-| factor;
+identifier : ID;
+ID : [a-z][a-zA-Z0-9_]*;
 
-factor : identifier
-| number;
+number : Digit;
 
-WS: [ \r\n\t]+ -> skip ;
+Digit : '0'
+    | '-'?[1-9][0-9]*
+    ;
+
+WS  : [ \t\r\n]+ -> skip;
