@@ -50,12 +50,19 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntExprInit(yaslParser.IntExprInitContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code strNumInit}
+	 * Visit a parse tree produced by the {@code strIdInit}
 	 * labeled alternative in {@link yaslParser#string}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStrNumInit(yaslParser.StrNumInitContext ctx);
+	T visitStrIdInit(yaslParser.StrIdInitContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code strSenInit}
+	 * labeled alternative in {@link yaslParser#string}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStrSenInit(yaslParser.StrSenInitContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code boolIdInit}
 	 * labeled alternative in {@link yaslParser#bool}.
@@ -91,6 +98,90 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBoolDeclare(yaslParser.BoolDeclareContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignNum}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignNum(yaslParser.AssignNumContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignBol}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignBol(yaslParser.AssignBolContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignString}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignString(yaslParser.AssignStringContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignExpr}
+	 * labeled alternative in {@link yaslParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignExpr(yaslParser.AssignExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddIdStep(yaslParser.AddIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubIdStep(yaslParser.SubIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulIdStep(yaslParser.MulIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code divideIdStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivideIdStep(yaslParser.DivideIdStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddNumStep(yaslParser.AddNumStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubNumStep(yaslParser.SubNumStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mulNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMulNumStep(yaslParser.MulNumStepContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code divNumStep}
+	 * labeled alternative in {@link yaslParser#step_size}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivNumStep(yaslParser.DivNumStepContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code preIncrement}
 	 * labeled alternative in {@link yaslParser#unary_operator}.
@@ -154,6 +245,32 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWhile_loop(yaslParser.While_loopContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link yaslParser#for_loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFor_loop(yaslParser.For_loopContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#option}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOption(yaslParser.OptionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code simpleRange}
+	 * labeled alternative in {@link yaslParser#range_loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimpleRange(yaslParser.SimpleRangeContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code stepRange}
+	 * labeled alternative in {@link yaslParser#range_loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStepRange(yaslParser.StepRangeContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.
 	 * @param ctx the parse tree
@@ -210,11 +327,29 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNumberexpression(yaslParser.NumberexpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link yaslParser#sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSentence(yaslParser.SentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#sent_option}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSent_option(yaslParser.Sent_optionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link yaslParser#identifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIdentifier(yaslParser.IdentifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#special_char}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSpecial_char(yaslParser.Special_charContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link yaslParser#number}.
 	 * @param ctx the parse tree
