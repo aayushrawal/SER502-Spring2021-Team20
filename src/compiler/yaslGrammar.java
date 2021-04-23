@@ -3,13 +3,29 @@ import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
-import java.io.PrintWriter;
+import java.io.*;
 
 public class yaslGrammar {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        CharStream inputStream = CharStreams.fromString("bool a = 10>2? false: true;.");
+
+        String extension = args[0].substring(args[0].length() - 5);
+        if (!extension.equals(".yasl")) {
+            throw new IllegalArgumentException("extension should be yasl only");
+        }
+
+
+        BufferedReader reader = new BufferedReader(new FileReader(new File(args[0])));
+        String input = "";
+        String iterator = "";
+        while ((iterator = reader.readLine()) != null) {
+            input = input + iterator;
+        }
+
+
+        CharStream inputStream = CharStreams.fromString(input);
+        System.out.println(inputStream);
         yaslLexer lexer = new yaslLexer(inputStream);
         CommonTokenStream tokenizer = new CommonTokenStream(lexer);
         yaslParser parser = new yaslParser(tokenizer);
