@@ -10,13 +10,12 @@ public class yaslGrammar {
     public static void main(String[] args) throws IOException {
 
 
-        String extension = args[0].substring(args[0].length() - 5);
+        String extension = args[1].substring(args[1].length() - 5);
         if (!extension.equals(".yasl")) {
             throw new IllegalArgumentException("extension should be yasl only");
         }
 
-
-        BufferedReader reader = new BufferedReader(new FileReader(new File(args[0])));
+        BufferedReader reader = new BufferedReader(new FileReader(new File(args[1])));
         String input = "";
         String iterator = "";
         while ((iterator = reader.readLine()) != null) {
