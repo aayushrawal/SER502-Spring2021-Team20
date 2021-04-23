@@ -567,12 +567,78 @@ public class yaslEvaluate extends yaslBaseVisitor{
         return 0;
     }
 
+    @Override
+    public Object visitIntTernary(yaslParser.IntTernaryContext ctx) {
+        int a=0;
+        String id = ctx.identifier().getText();
+        if((boolean)visit(ctx.condition())) {
+            a =Integer.parseInt((String) visit(ctx.expression(0)));
+        } else {
+            a =Integer.parseInt((String) visit(ctx.expression(1)));
+        }
+        System.out.println(a);
+        memory.get("INT").put(id, String.valueOf(a));
+        for (String datatype: memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(datatype);
+            for(String var : innerMap.keySet()){
+                System.out.println(datatype+" "+ var + " " + innerMap.get(var));
+            }
+        }
+
+
+        return 0;
+    }
+
+    @Override
+    public Object visitStrTernary(yaslParser.StrTernaryContext ctx) {
+        String a= null;
+        String id = ctx.identifier().getText();
+        if((boolean)visit(ctx.condition())) {
+            a = ctx.sentence(0).getText();
+        } else {
+            a = ctx.sentence(1).getText();
+        }
+        System.out.println(a);
+        memory.get("STR").put(id, a);
+        for (String datatype: memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(datatype);
+            for(String var : innerMap.keySet()){
+                System.out.println(datatype+" "+ var + " " + innerMap.get(var));
+            }
+        }
+
+
+        return 0;
+    }
+
+    @Override
+    public Object visitBolTernary(yaslParser.BolTernaryContext ctx) {
+        String a= null;
+        String id = ctx.identifier().getText();
+        if((boolean)visit(ctx.condition())) {
+            a =ctx.boolean_value.getText();
+        } else {
+            a =ctx.boolean_value.getText();
+        }
+        System.out.println(a);
+        memory.get("BOL").put(id, String.valueOf(a));
+        for (String datatype: memory.keySet()){
+            HashMap<String,String> innerMap = memory.get(datatype);
+            for(String var : innerMap.keySet()){
+                System.out.println(datatype+" "+ var + " " + innerMap.get(var));
+            }
+        }
+
+
+        return 0;
+    }
+
 
 
     @Override
     public Object visitAddition(yaslParser.AdditionContext ctx) {
         System.out.println("AF");
-        int left =  (int)visit(ctx.term());
+        int left =  Integer.parseInt((String) visit(ctx.term()));
         int right =  Integer.parseInt((String) visit(ctx.expression()));
         int result = left + right;
         return result;
@@ -582,7 +648,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
     @Override
     public Object visitSubtraction(yaslParser.SubtractionContext ctx) {
         System.out.println("AG");
-        int left =  (int)visit(ctx.term());
+        int left = Integer.parseInt((String) visit(ctx.term()));
         int right =  Integer.parseInt((String) visit(ctx.expression()));
         int result = left - right;
         return result;
@@ -626,6 +692,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
         int val1 = 0;
         String val2 = null;
         String id = ctx.identifier().getText();
+        System.out.println(id.getClass());
         if(id.getClass().equals("class java.lang.Integer"))
         {
             for (String datatype : memory.keySet()) {

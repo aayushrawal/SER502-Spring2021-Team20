@@ -285,6 +285,27 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStepRange(yaslParser.StepRangeContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code intTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIntTernary(yaslParser.IntTernaryContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code strTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStrTernary(yaslParser.StrTernaryContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code bolTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBolTernary(yaslParser.BolTernaryContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.
 	 * @param ctx the parse tree

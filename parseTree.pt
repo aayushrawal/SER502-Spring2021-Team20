@@ -1,1 +1,1 @@
-(program (block (initialization (integer int (identifier a) = (number 5))) ; (block (print print ( (expression (term (factor (identifier a)))) )) ;)) .)
+(program (block (ternary_conditional bool (identifier a) = (condition (expression (term (factor (number 10)))) > (expression (term (factor (number 2))))) ? false : true) ;) .)

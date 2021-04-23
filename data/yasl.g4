@@ -14,8 +14,6 @@ block : initialization ';'
 | while_loop
 | unary_operator ';' block
 | unary_operator ';'
-| step_size ';' block
-| step_size ';'
 ;
 
 initialization : integer
@@ -37,16 +35,6 @@ bool : 'bool' identifier '=' identifier #boolIdInit
 declaration :  'int' identifier     # intDeclare
 | 'string' identifier               # strDeclare
 | 'bool' identifier                 # boolDeclare
-;
-
-step_size : identifier '+=' identifier #addIdStep
-| identifier '-=' identifier           #subIdStep
-| identifier '*=' identifier           #mulIdStep
-| identifier '/=' identifier           #divideIdStep
-| identifier '+=' number               #addNumStep
-| identifier '-=' number               #subNumStep
-| identifier '*=' number               #mulNumStep
-| identifier '/=' number               #divNumStep
 ;
 
 unary_operator : '++' identifier #preIncrement

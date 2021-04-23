@@ -476,6 +476,42 @@ public interface yaslListener extends ParseTreeListener {
 	 */
 	void exitStepRange(yaslParser.StepRangeContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code intTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterIntTernary(yaslParser.IntTernaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code intTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitIntTernary(yaslParser.IntTernaryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code strTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterStrTernary(yaslParser.StrTernaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code strTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitStrTernary(yaslParser.StrTernaryContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code bolTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterBolTernary(yaslParser.BolTernaryContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code bolTernary}
+	 * labeled alternative in {@link yaslParser#ternary_conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitBolTernary(yaslParser.BolTernaryContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code addition}
 	 * labeled alternative in {@link yaslParser#expression}.
 	 * @param ctx the parse tree
