@@ -6,8 +6,8 @@ block : initialization ';'
 | initialization ';' block
 | declaration ';'
 | declaration ';' block
-| if_conditional ';' block
-| if_conditional ';'
+| if_conditional block
+| if_conditional
 | while_loop block
 | while_loop
 | unary_operator ';' block
