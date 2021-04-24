@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SER502-Spring2021-Team20:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SER502_Spring2021_Team20_jar</output-path>
+    <root id="archive" name="SER502-Spring2021-Team20.jar">
+      <element id="module-output" name="SER502-Spring2021-Team20" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/compiler/antlr-4.9.2-complete.jar" path-in-jar="/" />
+      <element id="library" level="project" name="compiler" />
+    </root>
+  </artifact>
+</component>
