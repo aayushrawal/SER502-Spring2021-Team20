@@ -1,0 +1,25 @@
+int x;
+int y;
+x = 8;
+y = 4;
+int z = x + y;
+print(z);
+z = x - y;
+print(z);
+z = x * y;
+print(z);
+z = x / y;
+print(z);
+z += 10;
+print(z);
+z -= 5;
+print(z);
+z *= 3;
+print(z);
+z /= 2;
+print(z);
+z++;
+print(z);
+z--;
+print(z);
+.

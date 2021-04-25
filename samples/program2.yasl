@@ -1,0 +1,11 @@
+int a = 10;
+int factorial = 1;
+    
+while(a > 0) {
+    factorial *= a;
+    print("factorial is ");
+    print(factorial);
+    a--;
+}
+.
+    

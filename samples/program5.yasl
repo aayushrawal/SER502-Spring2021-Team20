@@ -1,0 +1,12 @@
+int a = 10;
+int b = 20;
+
+int min = a > b ? b : a;
+print("The smaller number is ");
+print(min);
+
+int max = a > b ? a : b;
+print("The larger number is ");
+print(max);
+.
+
