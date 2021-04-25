@@ -70,8 +70,8 @@ unary_operator : '++' identifier #preIncrement
 | '--' identifier                #preDecrement
 | identifier '--'                #postDecrement;
 
-print : 'print' '(' '"' sentence '"' ')' #printStr
-|'print' '(' (expression)')'             #printExpr
+print : 'print' '(' sentence ')' #printStr
+|'print' '(' expression')'             #printExpr
 ;
 
 
@@ -106,7 +106,10 @@ factor : identifier #idexpression
 | number #numberexpression;
 
 sentence : sent_option*;
-sent_option : number |identifier| special_char;
+sent_option : number |str_sent| special_char;
+
+str_sent: Str;
+Str: '"' (~["])+ '"';
 
 identifier : ID;
 ID : [a-zA-Z][a-zA-Z0-9_]*;

@@ -1,4 +1,5 @@
-// Generated from /home/emina/SER502-Spring2021-Team20/data/yasl.g4 by ANTLR 4.9.1
+// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
+
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -372,6 +373,12 @@ public interface yaslVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSent_option(yaslParser.Sent_optionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link yaslParser#str_sent}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStr_sent(yaslParser.Str_sentContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link yaslParser#identifier}.
 	 * @param ctx the parse tree

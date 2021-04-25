@@ -1,4 +1,5 @@
-// Generated from /home/emina/SER502-Spring2021-Team20/data/yasl.g4 by ANTLR 4.9.1
+// Generated from C:/Users/dpatel81/Downloads/SER-516-assignment5-master/Antlr/src/a\yasl.g4 by ANTLR 4.9.1
+
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -381,6 +382,13 @@ public class yaslBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements y
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitSent_option(yaslParser.Sent_optionContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitStr_sent(yaslParser.Str_sentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -392,7 +392,8 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitPrintStr(yaslParser.PrintStrContext ctx) {
-        System.out.println(ctx.sentence().getText());
+        String res = ctx.sentence().getText();
+        System.out.println(res.replaceAll("[\"]",""));
         return 0;
     }
 
