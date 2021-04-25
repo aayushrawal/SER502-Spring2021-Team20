@@ -33,3 +33,23 @@ Contribution ( April 1 - April 11 )
 * Worked on creating parse tree for the language using Antlr
 4. Venkata Surya Shandilya Kambhampati
 * Worked on creating parse tree for the language using Antlr
+
+Contribution ( April 12 - April 18 )
+1. Sameet Krishna Kumar
+* Worked on creating parse tree for the language using Antlr
+2. Aayush Rawal
+* Worked on creating parse tree for the language using Antlr
+3. Dhruv Dilipkumar Patel
+* Started working on evaluator.
+4. Venkata Surya Shandilya Kambhampati
+* Started working on evaluator.
+
+Contribution ( April 19 - April 24 )
+1. Sameet Krishna Kumar
+* Worked on creating shell script.
+2. Aayush Rawal
+* Worked on creating shell script.
+3. Dhruv Dilipkumar Patel
+* Worked on evaluator.
+4. Venkata Surya Shandilya Kambhampati
+* Worked on evaluator.
