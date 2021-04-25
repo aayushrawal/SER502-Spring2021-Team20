@@ -38,7 +38,22 @@ public class yaslEvaluate extends yaslBaseVisitor{
     public Object visitIntIdInit(yaslParser.IntIdInitContext ctx) {
         String id1 = ctx.identifier(0).getText();
         String id2 = ctx.identifier(1).getText();
-        memory.get("INT").put(id1,id2);
+        boolean keyExists = false;
+        for (String integer : memory.keySet()) {
+            if (!keyExists) {
+                HashMap<String, String> innerMap = memory.get(integer);
+                for (String name: innerMap.keySet()) {
+                    String key = name.toString();
+                    if (key.equals(id2)) {
+                        String value = innerMap.get(name).toString();
+                        memory.get("INT").put(id1,value);
+                        keyExists = true;
+                        break;
+                    }
+                }
+            }
+        }
+
         return 0;
     }
 
@@ -53,9 +68,24 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitStrIdInit(yaslParser.StrIdInitContext ctx) {
-        String id1 = ctx.identifier(1).getText();
-        String id2 = ctx.identifier(0).getText();
-        memory.get("STR").put(id1,id2);
+        String id1 = ctx.identifier(0).getText();
+        String id2 = ctx.identifier(1).getText();
+
+        boolean keyExists = false;
+        for (String string : memory.keySet()) {
+            if (!keyExists) {
+                HashMap<String, String> innerMap = memory.get(string);
+                for (String name: innerMap.keySet()) {
+                    String key = name.toString();
+                    if (key.equals(id2)) {
+                        String value = innerMap.get(name).toString();
+                        memory.get("STR").put(id1,value);
+                        keyExists = true;
+                        break;
+                    }
+                }
+            }
+        }
         return 0;
     }
 
@@ -71,7 +101,21 @@ public class yaslEvaluate extends yaslBaseVisitor{
     public Object visitBoolIdInit(yaslParser.BoolIdInitContext ctx) {
         String id1 = ctx.identifier(0).getText();
         String id2 = ctx.identifier(1).getText();
-        memory.get("BOL").put(id1,id2);
+        boolean keyExists = false;
+        for (String string : memory.keySet()) {
+            if (!keyExists) {
+                HashMap<String, String> innerMap = memory.get(string);
+                for (String name: innerMap.keySet()) {
+                    String key = name.toString();
+                    if (key.equals(id2)) {
+                        String value = innerMap.get(name).toString();
+                        memory.get("BOL").put(id1,value);
+                        keyExists = true;
+                        break;
+                    }
+                }
+            }
+        }
         return 0;
     }
 
@@ -108,19 +152,10 @@ public class yaslEvaluate extends yaslBaseVisitor{
     @Override
     public Object visitAssignExpr(yaslParser.AssignExprContext ctx) {
         String id1 = ctx.identifier().getText();
-        String id2 = ctx.expression().getText();
-        String val = null;
-        if(val.toLowerCase().equals("true") || val.toLowerCase().equals("false")) {
-            memory.get("BOL").put(id1, val);
-        } else if (val.getClass().equals("class java.lang.Integer")){
-            memory.get("INT").put(id1, val);
-        }else{
-            memory.get("STR").put(id1, val);
-        }
-
+        String id2 = visit(ctx.expression()).toString();
+        memory.get("INT").put(id1, id2);
         return 0;
     }
-
 
     @Override
     public Object visitAssignBol(yaslParser.AssignBolContext ctx) {
@@ -133,7 +168,6 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitAssignString(yaslParser.AssignStringContext ctx) {
-        System.out.println("M");
         String id1 = ctx.identifier().getText();
         String id2 = ctx.sentence().getText();
         memory.get("STR").put(id1,id2);
@@ -228,7 +262,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
         int val1 = 0;
         int val2 = 0;
         String id1 = ctx.identifier().getText();
-        String id2 = ctx.number().getText();;
+        String id2 = ctx.number().getText();
         for(String integer :memory.keySet()){
             HashMap<String,String> innerMap = memory.get(integer);
             if(innerMap.containsKey(id1)){
@@ -264,9 +298,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
         int val1 = 0;
         int val2 = 0;
         String id1 = ctx.identifier().getText();
-        System.out.println(id1);
         String id2 = ctx.number().getText();
-        System.out.println(id2);
         for(String integer :memory.keySet()){
             HashMap<String,String> innerMap = memory.get(integer);
             if(innerMap.containsKey(id1)){
@@ -281,7 +313,6 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitDivNumStep(yaslParser.DivNumStepContext ctx) {
-        System.out.println("V");
         int val1 = 0;
         int val2 = 0;
         String id1 = ctx.identifier().getText();
@@ -361,6 +392,7 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitPrintStr(yaslParser.PrintStrContext ctx) {
+        System.out.println(ctx.sentence().getText());
         return 0;
     }
 
@@ -491,14 +523,6 @@ public class yaslEvaluate extends yaslBaseVisitor{
             a = ctx.sentence(1).getText();
         }
         memory.get("STR").put(id, a);
-        for (String datatype: memory.keySet()){
-            HashMap<String,String> innerMap = memory.get(datatype);
-            for(String var : innerMap.keySet()){
-                System.out.println(datatype+" "+ var + " " + innerMap.get(var));
-            }
-        }
-
-
         return 0;
     }
 
@@ -512,14 +536,6 @@ public class yaslEvaluate extends yaslBaseVisitor{
             a =ctx.boolean_value.getText();
         }
         memory.get("BOL").put(id, String.valueOf(a));
-        for (String datatype: memory.keySet()){
-            HashMap<String,String> innerMap = memory.get(datatype);
-            for(String var : innerMap.keySet()){
-                System.out.println(datatype+" "+ var + " " + innerMap.get(var));
-            }
-        }
-
-
         return 0;
     }
 
@@ -527,17 +543,16 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitAddition(yaslParser.AdditionContext ctx) {
-        int left =  Integer.parseInt((String) visit(ctx.term()));
-        int right =  Integer.parseInt((String) visit(ctx.expression()));
+        int left =  Integer.parseInt(String.valueOf(visit(ctx.term())));
+        int right =  Integer.parseInt(String.valueOf(visit(ctx.expression())));
         int result = left + right;
         return result;
-
     }
 
     @Override
     public Object visitSubtraction(yaslParser.SubtractionContext ctx) {
-        int left = Integer.parseInt((String) visit(ctx.term()));
-        int right =  Integer.parseInt((String) visit(ctx.expression()));
+        int left = Integer.parseInt(String.valueOf(visit(ctx.term())));
+        int right =  Integer.parseInt(String.valueOf(visit(ctx.expression())));
         int result = left - right;
         return result;
     }
@@ -549,8 +564,8 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitMultiplication(yaslParser.MultiplicationContext ctx) {
-        int left =  Integer.parseInt((String) visit(ctx.factor()));
-        int right =  Integer.parseInt((String) visit(ctx.term()));
+        int left =  Integer.parseInt(String.valueOf(visit(ctx.factor())));
+        int right =  Integer.parseInt(String.valueOf(visit(ctx.term())));
         int result = left * right;
         return result;
 
@@ -558,8 +573,8 @@ public class yaslEvaluate extends yaslBaseVisitor{
 
     @Override
     public Object visitDivision(yaslParser.DivisionContext ctx) {
-        int left =  Integer.parseInt((String) visit(ctx.factor()));
-        int right =  Integer.parseInt((String) visit(ctx.term()));
+        int left =  Integer.parseInt(String.valueOf(visit(ctx.factor())));
+        int right =  Integer.parseInt(String.valueOf(visit(ctx.term())));
         int result = left / right;
         return result;
 

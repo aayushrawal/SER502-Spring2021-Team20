@@ -52,7 +52,7 @@ declaration :  'int' identifier     # intDeclare
 assignment : identifier '=' number                #assignNum
 | identifier '=' boolean_value=('true' | 'false') #assignBol
 | identifier '=' '"' sentence '"'                 #assignString
-|identifier '=' expression                        #assignExpr
+| identifier '=' expression                       #assignExpr
 ;
 
 step_size : identifier '+=' identifier #addIdStep
@@ -109,7 +109,7 @@ sentence : sent_option*;
 sent_option : number |identifier| special_char;
 
 identifier : ID;
-ID : [a-z][a-zA-Z0-9_]*;
+ID : [a-zA-Z][a-zA-Z0-9_]*;
 
 special_char : Special_char;
 Special_char : [$&+,:;=?@#|'<>.^*()%!-];
